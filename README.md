@@ -1,1 +1,1 @@
-this is a readmefile for low-level programining in c
+This is a readme file for nested loops
