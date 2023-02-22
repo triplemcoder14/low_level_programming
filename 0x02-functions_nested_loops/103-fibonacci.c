@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+/**
+ *
+ * main - Entry point
+ *
+ * Description: prints the sum of the even-valued terms
+ *
+ * Return: On success 0
+ *
+ */
 int main() {
     int previous_term = 1;
     int current_term = 2;
