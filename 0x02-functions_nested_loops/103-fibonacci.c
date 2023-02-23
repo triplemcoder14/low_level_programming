@@ -1,30 +1,37 @@
 #include <stdio.h>
 
 /**
- *
- * main - Entry point
- *
- * Description: prints the sum of the even-valued terms
- *
- * Return: On success 0
- *
- */
-int main() {
-    int previous_term = 1;
-    int current_term = 2;
-    int next_term;
-    int sum_even_terms = 0;
+* main - Entry point
+*
+* Description: A program that finds and prints the sum of the even-valued terms
+*
+* Return: On success 0
+*/
 
-    while (current_term <= 4000000) {
-        if (current_term % 2 == 0) {
-            sum_even_terms += current_term;
-        }
-        next_term = previous_term + current_term;
-        previous_term = current_term;
-        current_term = next_term;
-    }
+int main(void)
+{
+	long int even_sum, sum, a, b, c;
 
-    printf("%d\n", sum_even_terms);
+	a = 0;
+	b = 1;
 
-    return 0;
+	do {
+		c = a + b;
+
+		if (c % 2 == 0)
+		{
+			even_sum += c;
+		}
+
+		sum += c;
+
+		b = c;
+		a = b;
+
+	} while (sum < 4000000);
+
+	printf("%ld", sum);
+	printf("\n");
+
+	return (0);
 }
