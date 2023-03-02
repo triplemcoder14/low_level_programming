@@ -1,31 +1,30 @@
 #include "main.h"
-
 /**
- * cap_string - capitalizes all words in a string
- * @s: string
- * Return: address of s
- */
-char *cap_string(char *s)
-{
-	int i = 0, j;
-	char a[] = " \t\n,;.!?\"(){}";
+ *  * leet - encodes a string into 1337
+ *   * @s: input string.
+ *    * Return: the pointer dest.
+ *     */
 
-	while (*(s + i))
-	{
-		if (*(s + i) >= 'a' && *(s + i) <= 'z')
-		{
-			if (i == 0)
-				*(s + i) -= 'a' - 'A';
-			else
-			{
-				for (j = 0; j <= 12; j++)
-				{
-					if (a[j] == *(s + i - 1))
-						*(s + i) -= 'a' - 'A';
-				}
-			}
-		}
-		i++;
-	}
-	return (s);
+char *leet(char *s)
+{
+		int count = 0, i;
+			int lower_case[] = {97, 101, 111, 116, 108};
+				int upper_case[] = {65, 69, 79, 84, 76};
+					int numbers[] = {52, 51, 48, 55, 49};
+
+
+						while (*(s + count) != '\0')
+								{
+											for (i = 0; i < 5; i++)
+														{
+																		if (*(s + count) == lower_case[i] || *(s + count) == upper_case[i])
+																						{
+																											*(s + count) = numbers[i];
+																															break;
+																																		}
+																				}
+													count++;
+														}
+
+							return (s);
 }
