@@ -1,29 +1,30 @@
-#include <stddef.h>
-#include "main.h"
-
 /**
-* _strchr - Function that locates character in a string
-*
-* @s: string
-* @c: character to be located
-*
-* Return: pointer to character or NULL
+ * _strpbrk - a function that searches a
+ *            string for any of a set of bytes.
+ *
+ * @s: pointer to input string
+ * @accept: pointer to string we
+ *         searching for in @s
+ *
+ * Return: pointer to the bytes in @s
+ *         or NULL if no such byte is found
 */
 
-char *_strchr(char *s, char c)
+char *_strpbrk(char *s, char *accept)
 {
-	int i;
-	char *ptr;
+	int i, j;
 
-	for (i = 0; s[i] != '\0'; i++)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		if (*(s + i) == c)
+		j = 0;
+		while (accept[j] != '\0')
 		{
-			ptr = (s + i);
-			return (ptr);
+			if (s[i] == accept[j])
+				return (s + i);
+			j++;
 		}
-
+		i++;
 	}
-
-	return (NULL);
+	return ('\0');
 }
