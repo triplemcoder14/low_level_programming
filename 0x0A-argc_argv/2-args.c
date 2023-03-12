@@ -1,31 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
-* main - print product of two numbers
+* main - entry point
 *
 * @argc: argument count
-* @argv: array of pointer to argument vector
+* @argv: argument vector
 *
-* Return: 0 on success, 1 on Error
+* Return: 0 success
 */
 
 int main(int argc, char *argv[])
 {
-	int a, b, product;
+	int i;
 
-	a = atoi(argv[argc - 2]);
-	b = atoi(argv[argc - 1]);
-
-	product = a * b;
-
-	if (argc != 3)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	else
-		printf("%d\n", product);
-
+	for (i = 0; i < argc; i++)
+		printf("%s\n", argv[i]);
 	return (0);
 }
