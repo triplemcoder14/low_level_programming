@@ -1,24 +1,20 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
+
+/**
+ * get_endianness - checks the endianness
+ *
+ * Return: 0 if big endian, 1 if little endian
+ */
 
 int get_endianness(void) {
     unsigned int x = 0x12345678;
     char* ptr = (char*)&x;
 
-    /** If the first byte (i.e., the lowest address) is 0x78, the system is little endian.*/
+  
     if (*ptr == 0x78) {
-        return 1; /**little endian*/
+        return 1; /** little endian */
     } else {
-        return 0; /**ig endian*/
+        return 0; /** big endian */
     }
-}
-
-int main() {
-    int result = get_endianness();
-    if (result == 1) {
-        printf("System is little endian.\n");
-    } else {
-        printf("System is big endian.\n");
-    }
-    return 0;
 }
