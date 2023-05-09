@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include "main.h"
+
 
 /**
  * read_textfile - Reads text file and prints it to the POSIX standard output
@@ -12,8 +14,9 @@
  * return 0 if write fails or doesn't write expected size
  */
 
+
 ssize_t read_textfile(const char *filename, size_t letters)
-{
+	{
 	int fd;        /** file descriptor */
 	ssize_t bytes; /** number of bytes read and printed */
 	char buf[1024];/** buffer to hold file contents */
@@ -25,27 +28,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	/** Open file for reading only */
 	fd = open(filename, O_RDONLY);
 	if (fd == -1) /** check for errors opening the file */
-	{
-		perror("read_textfile");
 		return (0);
-	}
 
 	/** Read from file into buffer */
 	bytes = read(fd, buf, letters);
 	if (bytes == -1) /** check for errors reading from file */
-	{
-		perror("read_textfile");
-		close(fd);
 		return (0);
-	}
 
 	/** Print buffer to standard output */
 	if (write(STDOUT_FILENO, buf, bytes) != bytes)
-	{
-		perror("read_textfile");
-		close(fd);
 		return (0);
-	}
 
 	/** Close file and return number of bytes read and printed */
 	close(fd);
